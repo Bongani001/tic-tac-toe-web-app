@@ -1,0 +1,38 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+nav {
+    background: orange;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+   color: #fff;
+   margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+}
+
+.gameboard {
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 400px;
+    width: 400px;
+}
+
+.marker-grid {
+    border: 1px solid orange;
+    
+}
