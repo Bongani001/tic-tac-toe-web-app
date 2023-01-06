@@ -1,19 +1,7 @@
-// const gameboard = [];
-
-// const player = ((name, x) => {  // Create a player
-//     const getName = () => name;
-//     const getPiece = () => x;
-//     return getName, getPiece;
-// })();
-
-// const bob = player('boby', 'x');
-// console.log(bob);
-
-
 const gameBoard = (() => {
 
-    const playerFormation = (marker) => { //function for player creation
-        return marker;
+    const playerFormation = (mark) => { //function for player creation
+        return mark;
     };
 
     const player1 = playerFormation('X'); // Create player 1
@@ -32,8 +20,26 @@ const gameBoard = (() => {
         [9,5,1],
     ]
 
-   return { 
-   player1: player1,
-   player2: player2
-   };
+    console.log(boardArr);
+//    return { 
+//    player1: player1,
+//    player2: player2
+//    };
+
+    let markerGrid = document.querySelectorAll('.marker-grid');
+    let i = 0;
+
+    markerGrid.forEach(marker => {
+
+        marker.dataset.markerNum = i;
+        boardArr.push(marker);
+        marker.addEventListener('click', () => {
+            marker.textContent = 'x';
+            boardArr[marker.dataset.markerNum] = marker.textContent;
+            console.log(boardArr);
+        });
+        i++;
+   });
+
+
 })();
