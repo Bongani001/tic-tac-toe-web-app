@@ -1,14 +1,15 @@
 const gameBoard = (() => {
 
-    const playerFormation = (mark) => { //function for player creation
+    //function for creating a marker for each player
+    const playerFormation = (mark) => { 
         return mark;
     };
+    
+    // Create player 1 and player 2
+    const player1 = playerFormation('X'); 
+    const player2 = playerFormation('O');; 
 
-    const player1 = playerFormation('X'); // Create player 1
-    const player2 = playerFormation('O');; // Create player 2
-
-    let boardArr = [];
-
+    // Create combinations to match who is the winner
     const possibleCombinations = [
         [1,2,3],
         [4,5,6],
@@ -19,6 +20,9 @@ const gameBoard = (() => {
         [7,5,3],
         [9,5,1],
     ]
+
+    // An array to be used to match who is the winner
+    let boardArr = [];
 
     console.log(boardArr);
 //    return { 
