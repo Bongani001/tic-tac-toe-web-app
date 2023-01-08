@@ -47,15 +47,19 @@ markerGrid.forEach(marker => {
         //e.disabled = true;
         //marker.textContent = currentPlayer;
         // Change between players
-        if (currentPlayer === gameBoard.player1 && marker.textContent === '') {
+        if (winnerAnnouncement.textContent === ('Player 1 is the winner' || 'Player 2 is the winner')){
+            return;
+        } else if (currentPlayer === gameBoard.player1 && marker.textContent === '') {
             marker.textContent = currentPlayer;
             currentPlayer = gameBoard.player2;
+            see += marker.textContent;
             // Show current playing player
             playing1.textContent = '';
             playing2.textContent = 'Player 2';
         } else if (currentPlayer === gameBoard.player2 && marker.textContent === '') {
             marker.textContent = currentPlayer;
             currentPlayer = gameBoard.player1;
+            see += marker.textContent;
             // Show current playing player
             playing2.textContent = '';
             playing1.textContent = 'Player 1';
@@ -64,18 +68,27 @@ markerGrid.forEach(marker => {
         };
         gameBoard.boardArr[marker.dataset.markerNum] = marker.textContent;
         console.log(gameBoard.boardArr);
-        
+
+        // Check if it's a tie
+        if (see.length == 9) {
+            winnerAnnouncement.textContent = 'It\'s a tie!';
+            restartGame.style.display= 'block';
+            playing1.textContent = '';
+            playing2.textContent = '';
+        };
         
         // Check for the winner
         gameBoard.possibleCombinations.forEach(combinations => {
             let first = combinations[0];
             let second = combinations[1];
             let third = combinations[2];
+            
+            
             if (gameBoard.boardArr[first]=== gameBoard.player1) {
                 if (gameBoard.boardArr[second] === gameBoard.player1) {
                     if (gameBoard.boardArr[third] === gameBoard.player1) {
                         winnerAnnouncement.textContent = 'Player 1 is the winner';
-                        playing2.textContent = '';  
+                        playing2.textContent = '';
                         restartGame.style.display= 'block';
                     };
                 };
@@ -100,6 +113,7 @@ let restartGame = document.querySelector('.restart');
 
 restartGame.addEventListener('click', () => {
     markerGrid.forEach(marker => {
+        see = '';
         marker.textContent = '';
         gameBoard.boardArr = [];
         winnerAnnouncement.textContent = '';
