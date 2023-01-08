@@ -35,7 +35,15 @@ nav {
 
 .marker-grid {
     border: 1px solid orange;
-    
+    color: orange;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marker-grid:hover {
+    background: rgb(255, 166, 0, .2);
 }
 
 .winner-announcement {
