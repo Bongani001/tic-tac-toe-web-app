@@ -50,9 +50,15 @@ markerGrid.forEach(marker => {
         if (currentPlayer === gameBoard.player1 && marker.textContent === '') {
             marker.textContent = currentPlayer;
             currentPlayer = gameBoard.player2;
+            // Show current playing player
+            playing1.textContent = '';
+            playing2.textContent = 'Player 2';
         } else if (currentPlayer === gameBoard.player2 && marker.textContent === '') {
             marker.textContent = currentPlayer;
             currentPlayer = gameBoard.player1;
+            // Show current playing player
+            playing2.textContent = '';
+            playing1.textContent = 'Player 1';
         } else {
             return;
         };
@@ -69,14 +75,16 @@ markerGrid.forEach(marker => {
                 if (gameBoard.boardArr[second] === gameBoard.player1) {
                     if (gameBoard.boardArr[third] === gameBoard.player1) {
                         winnerAnnouncement.textContent = 'Player 1 is the winner';
-                        console.log('wowX');
+                        playing2.textContent = '';  
+                        restartGame.style.display= 'block';
                     };
                 };
             } else if (gameBoard.boardArr[first]=== gameBoard.player2) {
                 if (gameBoard.boardArr[second] === gameBoard.player2) {
                     if (gameBoard.boardArr[third] === gameBoard.player2) {
                         winnerAnnouncement.textContent = 'Player 2 is the winner';
-                        console.log('wowO');
+                        playing1.textContent = '';
+                        restartGame.style.display= 'block';
                     };
                 };
             } else {
@@ -87,13 +95,17 @@ markerGrid.forEach(marker => {
     i++;
 });
 
-// let winnerAnnouncement = document.querySelectorAll('.winner-announcement');
+let restartGame = document.querySelector('.restart');
 
-// possibleCombinations.forEach(combinations => {
-//     combinations.forEach(combination => {
-//         if (gameBoard.player1 in gameBoard.boardArr[combination]) {
-//             winnerAnnouncement.textContent = 'Player 1 is the winner';
-//         };
-//     });
-// });
 
+restartGame.addEventListener('click', () => {
+    markerGrid.forEach(marker => {
+        marker.textContent = '';
+        gameBoard.boardArr = [];
+        winnerAnnouncement.textContent = '';
+    });
+    restartGame.style.display = 'none';
+});
+
+let playing1 = document.querySelector('.playing1');
+let playing2 = document.querySelector('.playing2');

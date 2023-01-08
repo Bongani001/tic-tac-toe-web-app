@@ -24,6 +24,33 @@ nav {
     gap: 20px;
 }
 
+.playing {
+    display: flex;
+    color: orange;
+    font-weight: bolder;
+    font-size: 20px;
+    gap: 200px;
+    /* border: 1px solid black; */
+}
+
+.playing1 {
+    position: relative;
+}
+
+.playing2 {
+    position: relative;
+    /* display: none; */
+}
+
+.restart {
+    background-color: orange;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    display: none;
+    border-radius: 5px;
+}
+
 .gameboard {
     /* border: 1px solid black; */
     display: grid;
