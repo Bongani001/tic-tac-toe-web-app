@@ -117,6 +117,7 @@ restartGame.addEventListener('click', () => {
         marker.textContent = '';
         gameBoard.boardArr = [];
         winnerAnnouncement.textContent = '';
+        currentPlayer = gameBoard.player1;
     });
     restartGame.style.display = 'none';
 });
