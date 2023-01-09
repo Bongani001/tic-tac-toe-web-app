@@ -44,7 +44,6 @@ markerGrid.forEach(marker => {
     marker.dataset.markerNum = i;
     gameBoard.boardArr.push(marker);
     marker.addEventListener('click', (e) => {
-        //e.disabled = true;
         //marker.textContent = currentPlayer;
         // Change between players
         if (winnerAnnouncement.textContent === ('Player 1 is the winner' || 'Player 2 is the winner')){
@@ -53,14 +52,14 @@ markerGrid.forEach(marker => {
             marker.textContent = currentPlayer;
             currentPlayer = gameBoard.player2;
             see += marker.textContent;
-            // Show current playing player
+            // Show and update current playing player
             playing1.textContent = '';
             playing2.textContent = 'Player 2';
         } else if (currentPlayer === gameBoard.player2 && marker.textContent === '') {
             marker.textContent = currentPlayer;
             currentPlayer = gameBoard.player1;
             see += marker.textContent;
-            // Show current playing player
+            // Show and update current playing player
             playing2.textContent = '';
             playing1.textContent = 'Player 1';
         } else {
@@ -118,6 +117,7 @@ restartGame.addEventListener('click', () => {
         gameBoard.boardArr = [];
         winnerAnnouncement.textContent = '';
         currentPlayer = gameBoard.player1;
+        playing1.textContent = 'Player 1';
     });
     restartGame.style.display = 'none';
 });
