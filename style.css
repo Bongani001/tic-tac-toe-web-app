@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(231, 228, 228);
+    /* background-color: rgb(231, 228, 228); */
 }
 
 nav {
@@ -86,7 +86,9 @@ nav {
 footer {
     display: flex;
     justify-content: center;
+    background-color: rgb(218, 214, 214);
     font-size: 15px;
+    padding: 20px;
 }
 
 .github-logo {
