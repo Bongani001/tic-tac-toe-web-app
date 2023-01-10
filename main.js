@@ -38,7 +38,6 @@ let currentPlayer = gameBoard.player1;
 let see = '';
 let winnerAnnouncement = document.querySelector('.winner-announcement');
 
-
 // Display markers on the display onclick
 markerGrid.forEach(marker => {
     marker.dataset.markerNum = i;
@@ -82,7 +81,6 @@ markerGrid.forEach(marker => {
             let second = combinations[1];
             let third = combinations[2];
             
-            
             if (gameBoard.boardArr[first]=== gameBoard.player1) {
                 if (gameBoard.boardArr[second] === gameBoard.player1) {
                     if (gameBoard.boardArr[third] === gameBoard.player1) {
@@ -108,7 +106,6 @@ markerGrid.forEach(marker => {
 });
 
 let restartGame = document.querySelector('.restart');
-
 
 restartGame.addEventListener('click', () => {
     markerGrid.forEach(marker => {
